@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+:root {
+    --bg-body: #f1f1f1;
+    --bg-sidebar: #111827;
+    --color-white: #ffffff;
+    --color-item: rgb(134, 141, 151);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    position: relative;
+    background: var(--bg-body);
+    display: flex;
+}
+
+li {
+    list-style: none;
+}
+
+.sidebar {
+    background: var(--bg-sidebar);
+    width: 300px;
+    height: 100vh;
+}
+
+.sidebar .logo-admin {
+    display: flex;
+    align-items: center;
+    color: var(--color-white);
+    padding: 30px 0 0 10px;
+}
+
+.sidebar .logo-admin img {
+    width: 60px;
+    margin-right: 15px;
+}
+
+.sidebar .items {
+    margin-top: 40px;
+    padding-left: 0;
+}
+
+.sidebar .items li {
+    padding: 15px 0;
+    transition: 0.2s ease;
+}
+
+.sidebar .items li:hover {
+    background: #253047;
+    cursor: pointer;
+}
+
+.sidebar .items li.active {
+    border-left: 4px solid #ffffff;
+    background: #253047;
+}
+
+.sidebar .items li:nth-child() {
+    border-left: 4px solid #ffffff;
+    background: #253047;
+}
+
+.items li i {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 15px;
+    margin: 0 10px 0 25px;
+    color: var(--color-item);
+}
+
+.items li:hover i,
+.items li:hover a {
+    color: #F3F4F6;
+}
+
+.items li.active i, 
+.items li.active a {
+    color: #F3F4F6;
+}
+
+.items li a {
+    color: var(--color-item);
+    font-weight: 300;
+    transition: 0.2s ease;
+    text-decoration: none;
+}
+
+.content {
+    width: calc(100% - 300px);
+}
+
+.navbar-admin {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-white);
+    padding: 15px 30px;
+    border-bottom: 1px solid #000;
+}
+
+.navbar-admin .search {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 10px 14px;
+    border: 1px solid gray;
+}
+
+.navbar-admin .search i{
+    margin-right: 10px;
+}
+
+.navbar-admin .search input{
+    font-size: 14px;
+    border: none;
+    outline: none;
+}
+
+.navbar-admin .profile{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar-admin .profile i{
+    margin-right: 20px;
+    font-weight: 400;
+    font-size: 19px;
+}
+
+.navbar-admin .profile img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.add-member {
+    float: right;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #609966;
+    cursor: pointer;
+    background-color: white;
+    color: #609966;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 18px;
+    text-decoration: none;
+}
+
+.add-member:hover {
+    border-color: #b5b5b5;
+    color: #b5b5b5;
+}
+
+.dataTable{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.dataTable thead th {
+    text-align: center;
+    background-color: var(--color-white);
+    border-bottom: 1px solid #ddd;
+    background-color: #009879;
+    color: #ffffff;
+}
+
+.dataTable tbody tr:nth-of-type(even) {
+    background-color: var(--color-white);
+    color: #009879;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+    text-align: center;
+}
+
+td:last-child a {
+    text-decoration: none;
+    padding: 3px 5px;
+    border-radius: 5px;
+}
+
+.edit{
+    color: rgb(216, 216, 35);
+    font-size: 18px;
+}
+
+.delete {
+    color: red;
+    font-size: 18px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+}
+
+.button-container {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.button-container button {
+    margin-left: 5px;
+}
+
+#cancelButton,
+#okButton {
+    padding: 6px 8px;
+    cursor: pointer;
+}
+
+/* PAGE ADD  */
+.heading {
+    margin: 20px 20px 20px 10px;
+    font-weight: 600;
+}
+
+form {
+    padding: 10px 60px;
+    border: 0.5px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #c9c8c8;
+}
+.row {
+    margin-bottom: 12px;
+}
+
+/* approve page */
+.approve i {
+    color: #609966;
+    font-size: 18px;
+}
+
+.cancel i {
+    color: rgb(183, 23, 23);
+    font-size: 18px;
+}

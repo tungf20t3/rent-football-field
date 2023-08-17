@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Detail Order</title>
+        <link rel="stylesheet" href="../style/owner.css" />
+        <link rel="icon" type="image/x-icon" href="../assets/img/football.png" />
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <style>
+            .sidebar {
+                background: var(--bg-sidebar);
+                width: 300px;
+                height: 100vh;
+            }
+
+            .add-pitch {
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="logo-admin">
+                <img src="../assets/img/logo.png" alt="logo" />
+                <h2>DreamTeam</h2>
+            </div>
+            <ul class="items">
+                <li>
+                    <i class="ri-home-4-fill"></i>
+                    <a href="index.html">Thông tin sân bóng</a>
+                </li>
+                <li>
+                    <i class="ri-time-fill"></i>
+                    <a href="#">Quản lý khung giờ</a>
+                </li>
+                <li>
+                    <i class="ri-football-line"></i>
+                    <a href="managePitch.html">Quản lý sân</a>
+                </li>
+                <li>
+                    <i class="ri-wallet-fill"></i>
+                    <a href="manageOrderPitch.html">Quản lý đặt sân</a>
+                </li>
+                <li>
+                    <i class="ri-login-box-fill"></i>
+                    <a href="#">Đăng xuất</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <!-- navbar -->
+            <div class="navbar-admin">
+                <div class="search">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search" />
+                </div>
+
+                <div class="profile">
+                    <i class="ri-notification-3-line"></i>
+                    <img src="../assets/img/avatar.jpg" alt="avatar" />
+                </div>
+            </div>
+
+            <div class="container">
+                <h3 class="heading">Thông tin chi tiết đặt sân</h3>
+                <form>
+                    <p>Thông tin sân</p>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span class="fs-5">Tên sân: </span>
+                            <span class="fw-bold fs-5" id="name-pitch">Sân A1</span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <span class="fs-5">Ngày đặt: </span>
+                            <span class="fw-bold fs-5" id="day-order">06/05/2023</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span class="fs-5">Khung giờ: </span>
+                            <span class="fw-bold fs-5" id="time-slot">17:00 - 18:00</span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <span class="fs-5">Giá: </span>
+                            <span class="fw-bold fs-5" id="price">300.000đ</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span class="fs-5">Trạng thái: </span>
+                            <span class="fs-5 fw-bold" id="status-order">Đang chờ duyệt</span>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <p>Thông tin thành viên</p>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span class="fs-5">Tên thành viên: </span>
+                            <span class="fw-bold fs-5" id="name-member">Lưu Văn Tùng</span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <span class="fs-5">Số điện thoại: </span>
+                            <span class="fw-bold fs-5" id="phone">0399291315</span>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <p>Lịch sử</p>
+                    <pre id="history"></pre>
+
+                    <button type="button" id="refuse-btn" class="btn btn-secondary mt-3 mb-3 me-3">Hủy đơn</button>
+                    <button type="button" id="ok-btn" class="btn btn-success mt-3 mb-3">Phê duyệt</button>
+                    <button type="button" id="pay-btn" class="btn btn-success mt-3 mb-3">Xác nhận thanh toán</button>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="../js/main.js"></script>
+        <script>
+            const namePitch = document.getElementById("name-pitch");
+            const dayOrder = document.getElementById("day-order");
+            const timeSlot = document.getElementById("time-slot");
+            const price = document.getElementById("price");
+            const statusOrder = document.getElementById("status-order");
+            const nameMember = document.getElementById("name-member");
+            const phoneNumber = document.getElementById("phone");
+            const statusMember = document.getElementById("status-member");
+            const refuseBtn = document.getElementById("refuse-btn");
+            const okBtn = document.getElementById("ok-btn");
+            const payBtn = document.getElementById("pay-btn");
+            const history = document.getElementById("history");
+
+            // Lấy query parameters từ URL hiện tại
+            const params = new URLSearchParams(window.location.search);
+            // Lấy giá trị của tham số 'id'
+            const bookingId = params.get("id");
+            if (!bookingId) {
+                location.href = "manageOrderPitch.html";
+            }
+
+            // call api get details booking
+            $.ajax({
+                url: `${url_api}/booking/by-id`,
+                type: "get",
+                data: {
+                    booking_id: bookingId,
+                },
+                success(res) {
+                    console.log(res);
+                    if (res.status == "success") {
+                        setDataDetails(res.data);
+                    }
+                },
+                error: console.log,
+            });
+
+            function setDataDetails(data) {
+                namePitch.textContent = data.field.name;
+                dayOrder.textContent = data.date_book;
+                timeSlot.textContent = `${data.timeSlot.time_start} - ${data.timeSlot.time_end}`;
+                price.textContent = `${parseInt(data.price).toLocaleString()}đ`;
+                nameMember.textContent = data.customer_name;
+                phoneNumber.textContent = data.phone_number;
+                history.textContent = data.log.replace(/;/g, "\n");
+
+                // điều kiện ngày duyệt đơn phải là ngày hiện tại hoặc ngày trong tương lai
+                const dateTimeBooking = new Date(data.date_book + "T" + data.timeSlot.time_start + ":00Z");
+                const now = new Date();
+                if (dateTimeBooking < now) {
+                    statusOrder.textContent = "Đã quá hạn";
+                } else {
+                    statusOrder.textContent = data.status.name;
+                }
+
+                if (data.status.id == 1) {
+                    if (dateTimeBooking < now) {
+                        okBtn.style.display = "none";
+                    } else {
+                        payBtn.style.display = "none";
+                    }
+                } else if (data.status.id == 2) {
+                    okBtn.style.display = "none";
+                } else {
+                    okBtn.style.display = "none";
+                    payBtn.style.display = "none";
+                    refuseBtn.style.display = "none";
+                }
+
+                // xử lý sự kiện nút duyệt 
+                okBtn.addEventListener("click", function () {
+                    if (confirm("Bạn chắc chắn muốn duyệt đơn đặt sân này không ?")) {
+                        $.ajax({
+                            url: `${url_api}/booking/update`,
+                            type: "post",
+                            data: {
+                                booking_id: bookingId,
+                                status_id: 2,
+                            },
+                            success(res) {
+                                console.log(res);
+                                alert(res.message);
+                                location.reload();
+                            },
+                            error: console.log,
+                        });
+                    }
+                });
+
+                // xử lý sự kiện nút hủy
+                refuseBtn.addEventListener("click", function () {
+                    if (confirm("Bạn chắc chắn muốn hủy đơn đặt sân này không ?")) {
+                        $.ajax({
+                            url: `${url_api}/booking/update`,
+                            type: "post",
+                            data: {
+                                booking_id: bookingId,
+                                status_id: 3,
+                            },
+                            success(res) {
+                                console.log(res);
+                                alert(res.message);
+                                location.reload();
+                            },
+                            error: console.log,
+                        });
+                    }
+                });
+
+                // xử lý sự kiện nút thanh toán
+                payBtn.addEventListener("click", function () {
+                    if (confirm("Bạn chắc chắn muốn xác nhận thanh toán đơn đặt sân này không?")) {
+                        $.ajax({
+                            url: `${url_api}/booking/update`,
+                            type: "post",
+                            data: {
+                                booking_id: bookingId,
+                                status_id: 4,
+                            },
+                            success(res) {
+                                console.log(res);
+                                alert(res.message);
+                                location.reload();
+                            },
+                            error: console.log,
+                        });
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

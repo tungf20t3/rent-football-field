@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Order Pitch</title>
+        <link rel="stylesheet" href="../style/order.css" />
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-success bg-gradient fixed-top">
+            <div class="container">
+                <a class="navbar-brand me-2">
+                    <img
+                        src="../assets/img/logo.png"
+                        height="30"
+                        alt="MDB Logo"
+                        loading="lazy"
+                        style="margin-top: -1px"
+                    />
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarButtonsExample"
+                    aria-controls="navbarButtonsExample"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-light fw-bold" href="index.html">DreamTeam</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <a href="../login.html" id="login">
+                            <button type="button" class="btn btn-link px-3 me-2 text-decoration-none text-light">
+                                Đăng nhập
+                            </button>
+                        </a>
+                        <a href="../signup.html" id="signup">
+                            <button type="button" class="btn btn-info me-3 text-light">Đăng ký</button>
+                        </a>
+                        <a href="profile.html" id="account">
+                            <button type="button" class="btn btn-link px-3 me-2 text-decoration-none text-light">
+                                Tài khoản
+                            </button>
+                        </a>
+                        <a href="../login.html" id="logout">
+                            <button type="button" class="btn btn-info me-3 text-light">Đăng xuất</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- END NAV -->
+
+        <h4 id="name-pitch" class="name-pitch">Sân bóng Trưng Nữ Vương Đà Nẵng</h4>
+        <div class="contents">
+            <!-- left content -->
+            <div class="single-image" id="">
+                <img src="../assets/img/details/detail1.jpg" width="100%" id="MainImg" alt="" />
+
+                <div class="small-img-group" id="listImage">
+                    <div class="small-img-col">
+                        <img src="../assets/img/details/detail1.jpg" width="100%" class="small-img" />
+                    </div>
+                    <div class="small-img-col">
+                        <img src="../assets/img/details/detail2.jpg" width="100%" class="small-img" />
+                    </div>
+                    <div class="small-img-col">
+                        <img src="../assets/img/details/detail3.jpg" width="100%" class="small-img" />
+                    </div>
+                    <div class="small-img-col">
+                        <img src="../assets/img/details/detail4.jpg" width="100%" class="small-img" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- right content -->
+            <div class="info-detail">
+                <div class="info-address">
+                    <div class="header-info-address">
+                        <i class="ri-map-pin-fill"></i>
+                        <h5>Địa chỉ</h5>
+                    </div>
+                    <div class="body-info-address">
+                        <p id="address">Số 560 - Trưng Nữ Vương - quận Hải Châu - TP. Đà Nẵng.</p>
+                        <a href="https://goo.gl/maps/23DD221VjzLQAUvCA" target="_blank" id="view-map"
+                            >Xem trên bảng đồ</a
+                        >
+                        <div class="view-phone" onclick="viewPhoneNumber()">
+                            <span>Xem số chủ sân</span>
+                            <span id="phoneNumber">0123456789</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-order">
+                    <div class="header-info-order">
+                        <i class="ri-mail-fill"></i>
+                        <h5>Gửi yêu cầu đặt sân</h5>
+                    </div>
+                    <div class="body-info-order">
+                        <form>
+                            <div class="choose-day">
+                                <span>Chọn ngày</span>
+                                <input type="date" placeholder="Chọn ngày" id="select-day" />
+                            </div>
+
+                            <div class="choose-type-pitch">
+                                <span>Chọn loại sân</span>
+                                <select id="pitch-type">
+                                    <option value="type">-- Chọn loại sân --</option>
+                                    <option value="s5">Sân 5</option>
+                                    <option value="s7">Sân 7</option>
+                                    <option value="s11">Sân 11</option>
+                                </select>
+                            </div>
+
+                            <div class="field" id="field-section" style="display: none">
+                                <small><i>Chọn sân</i></small>
+                                <!-- danh sách loại sân -->
+                                <div id="list-pitch"></div>
+                            </div>
+
+                            <div class="choose-hours">
+                                <span>Chọn khung giờ</span>
+                                <div class="time-slot" id="time-slot">
+                                    <!-- <button>6:00 - 7:00</button>
+                                    <button>8:00 - 9:00</button>
+                                    <button>9:00 - 10:00</button>
+                                    <button>10:00 - 11:00</button>
+                                    <button>11:00 - 12:00</button>
+                                    <button>13:00 - 14:00</button>
+                                    <button>14:00 - 15:00</button>
+                                    <button>15:00 - 16:00</button>
+                                    <button>16:00 - 17:00</button>
+                                    <button>17:00 - 18:00</button>
+                                    <button>18:00 - 19:00</button>
+                                    <button>19:00 - 20:00</button>
+                                    <button>21:00 - 22:00</button>
+                                    <button>22:00 - 23:00</button> -->
+                                </div>
+                            </div>
+
+                            <span class="fw-bold fs-4">Giá: </span>
+                            <span class="fw-bold fs-4 text-success" id="price">200.000đ </span>
+
+                            <hr />
+
+                            <div class="fullname">
+                                <span>Họ và tên</span>
+                                <input type="text" placeholder="Nhập họ tên" id="fullname" />
+                            </div>
+
+                            <div class="phonenumber">
+                                <span>Số điện thoại</span>
+                                <input type="text" placeholder="Nhập số điện thoại" id="numberphone" />
+                            </div>
+
+                            <div class="leave-message">
+                                <span>Để lại lời nhắn</span>
+                                <textarea id="note"></textarea>
+                            </div>
+
+                            <input type="submit" name="" id="booking" value="Gửi yêu cầu" class="send-require" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end content -->
+        <div class="describe">
+            <div class="header-describe">
+                <h5>Mô tả sân</h5>
+            </div>
+
+            <div class="body-describe">
+                <h3>Bạn muốn thuê sân bóng Trưng Nữ Vương Đà Nẵng</h3>
+                <p>
+                    Sân bóng Đền Lừ 3 là sân bóng lâu đời, mới được chủ đầu tư chỉnh trang, nâng cấp và đang là một
+                    trong những sân bóng đẹp nhất Hà Nội. Với vị trí vô cùng thuận lợi, nằm ngay mặt đường chính, đối
+                    diện là công viên hồ Đền Lừ xanh mát, sân bóng Đền Lừ 3 đã trở thành địa điểm giao lưu hàng đầu.
+                </p>
+                <p>
+                    Sân bóng rất đông và luôn kín lịch, bạn muốn thuê sân vào các giờ cao điểm giờ đây sẽ rất khó khăn,
+                    hãy liên hệ với chủ sân và đăng ký trước để được chủ sân sắp xếp, các khung giờ thường trong ngày dễ
+                    dàng để sắp xếp lịch hơn và chi phí cũng tốt hơn rất nhiều.
+                </p>
+                <p>
+                    Cụm sân gồm 4 sân bóng đá mini, cũng giúp dễ dàng tổ chức thi đấu bóng đá cũng như thi đấu sân bóng
+                    11 người dễ dàng. Tìm hiểu ngay với chúng tôi bằng cách liên hệ sđt chủ sân: 098 219 6776
+                </p>
+
+                <h5>Cơ sở vật chất</h5>
+                <ul>
+                    <li>Có hệ thống đèn chiếu sáng hiện đại, đáp ứng nhu cầu thi đấu ban đêm.</li>
+                    <li>Lưới chắn bóng xung quanh sân cao 8m.</li>
+                    <li>Khung thành chắc chắn, kích thước 3.6m x 2.1m x 1.2m đúng chuẩn sân 7 hiện nay.</li>
+                    <li>Có chỗ để xe máy ô tô.</li>
+                    <li>Có căng tin, quán nước giải khát.</li>
+                    <li>Thường xuyên tổ chức các giải thi đấu bóng đá phong trào.</li>
+                </ul>
+
+                <h5>Giá thuê sân bóng tại đây</h5>
+                <ul>
+                    <li>Mỗi trận đấu tại sân kéo dài 60 phút chia làm các khung giờ.</li>
+                    <li>16h - 22h là khung giờ vàng với giá thuê sân là 300.000đ/trận.</li>
+                    <li>Sân hoạt động đến 23h hằng ngày.</li>
+                </ul>
+
+                <h5>Cách thức di chuyển đến/ Địa chỉ sân bóng</h5>
+                <ul>
+                    <li>Sân bóng nằm trên số 560 - Trưng Nữ Vương - quận Hải Châu - TP. Đà Nẵng.</li>
+                    <li>Bạn có thể đến sân bằng xe cá nhân như xe máy, ô tô.</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="text-center text-lg-start bg-white text-muted">
+            <div class="container text-center text-md-start mt-5">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3 text-secondary"></i>Company name
+                        </h6>
+                        <p>
+                            Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
+                            amet, consectetur adipisicing elit.
+                        </p>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+                        <p><a href="#!" class="text-reset text-decoration-none">Angular</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">React</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">Vue</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">Laravel</a></p>
+                    </div>
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+                        <p><a href="#!" class="text-reset text-decoration-none">Pricing</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">Settings</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">Orders</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">Help</a></p>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                        <p><i class="ri-home-2-fill text-secondary"></i> 94 Ngyễn Công Trứ, Sơn Trà, Đà Nẵng</p>
+                        <p><i class="ri-mail-fill text-secondary"></i> info@example.com</p>
+                        <p><i class="ri-phone-fill text-secondary"></i> + 01 234 567 88</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025)">
+                © 2021 Copyright:
+                <a class="text-reset text-decoration-none fw-bold" href="">VanTung</a>
+            </div>
+        </footer>
+        <!-- end footer -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="../js/main.js"></script>
+        <script>
+            // change image src
+            function domEventImage() {
+                var MainImg = document.getElementById("MainImg");
+                var smallimg = document.getElementsByClassName("small-img");
+                MainImg.src = smallimg[0].src;
+                smallimg[0].onclick = function () {
+                    MainImg.src = smallimg[0].src;
+                };
+                smallimg[1].onclick = function () {
+                    MainImg.src = smallimg[1].src;
+                };
+                smallimg[2].onclick = function () {
+                    MainImg.src = smallimg[2].src;
+                };
+                smallimg[3].onclick = function () {
+                    MainImg.src = smallimg[3].src;
+                };
+            }
+        </script>
+
+        <script>
+            const loginBtn = document.getElementById("login");
+            const signupBtn = document.getElementById("signup");
+            const accountBtn = document.getElementById("account");
+            const logoutBtn = document.getElementById("logout");
+            const selectWard = document.getElementById("list-ward");
+            const locations = document.getElementById("listLocation");
+            const namePitch = document.getElementById("name-pitch");
+            const addressPitch = document.getElementById("address");
+            const viewMap = document.getElementById("view-map");
+            const viewPhone = document.getElementById("phoneNumber");
+            const listImages = document.getElementById("listImage");
+            const price = document.getElementById("price");
+            const fullname = document.getElementById("fullname");
+            const numberphone = document.getElementById("numberphone");
+            const listTypePitchElement = document.getElementById("pitch-type");
+            const fieldSection = document.getElementById("field-section");
+            const listPitchs = document.getElementById("list-pitch");
+            const selectDay = document.getElementById("select-day");
+            const timeSlot = document.getElementById("time-slot");
+            const noteText = document.getElementById("note");
+            const bookingBtn = document.getElementById("booking");
+
+            var locationId = null;
+            var pitchId = null;
+            var timeSlotId = null;
+            var userId = localStorage.getItem("userId");
+            var priceNotFormat = null;
+
+            // Lấy query parameters từ URL hiện tại
+            const params = new URLSearchParams(window.location.search);
+            // Lấy giá trị của tham số 'id'
+            locationId = params.get("id");
+
+            // call api get id Location Detail
+            $.ajax({
+                url: `${url_api}/location/by-id`,
+                type: "get",
+                data: {
+                    location_id: locationId,
+                },
+                success(res) {
+                    setDataOrder(res.data);
+                    console.log(res);
+                },
+                error: console.log,
+            });
+
+            // call function userHeader
+            userHeaders();
+
+            // xử lý sự kiện đăng xuất
+            logoutBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                // call function logout
+                logout();
+                location.href = "../login.html";
+            });
+
+            function setDataOrder(data) {
+                namePitch.textContent = data.name;
+                addressPitch.textContent = `${data.address.description} - ${data.address.ward.name} - ${data.address.ward.district.name} - ${data.address.ward.district.province.name}`;
+                viewMap.setAttribute("src", data.link_map);
+                viewPhone.textContent = data.owner.phone_number;
+                price.textContent = `${data.price.min.toLocaleString()} - ${data.price.max.toLocaleString()}đ`;
+
+                const listImageHtml = data.image
+                    .map(function (item) {
+                        return `<div class="small-img-col">
+                                    <img src="${item}" width="100%" class="small-img" />
+                                </div>`;
+                    })
+                    .join("");
+                listImages.innerHTML = listImageHtml;
+                // call function change images
+                domEventImage();
+            }
+
+            // function get phone number owner
+            function viewPhoneNumber() {
+                const viewPhoneElement = document.querySelector(".view-phone");
+                viewPhoneElement.classList.toggle("active");
+            }
+
+            // get data user and phone number
+            fullname.value = localStorage.getItem("userName");
+            numberphone.value = localStorage.getItem("userPhone");
+
+            //call api get data type pitch
+            $.ajax({
+                url: `${url_api}/field-type`,
+                type: "get",
+                success(res) {
+                    console.log(res);
+                    if (res.status == "success") {
+                        setDataTypePitch(res.data);
+                    }
+                },
+                error: console.log,
+            });
+
+            // hàm đổ dữ liệu loại sân cho select
+            function setDataTypePitch(data) {
+                const listDataTypePitchHtml =
+                    `<option value="">-- Chọn loại sân --</option>` +
+                    data
+                        .map(function (item) {
+                            return `<option value="${item.id}">${item.name}</option>`;
+                        })
+                        .join("");
+                listTypePitchElement.innerHTML = listDataTypePitchHtml;
+            }
+
+            //change the select
+            listTypePitchElement.addEventListener("change", function () {
+                if (listTypePitchElement.value !== "") {
+                    fieldSection.style.display = "block";
+                    //call api get data pitch
+                    $.ajax({
+                        url: `${url_api}/field/by-type-and-location`,
+                        type: "get",
+                        data: {
+                            type_id: listTypePitchElement.value,
+                            location_id: locationId,
+                        },
+                        success(res) {
+                            console.log(res);
+                            //call function getPitch
+                            getPitch(res.data);
+                        },
+                        error: console.log,
+                    });
+                } else {
+                    getPitch([]);
+                    fieldSection.style.display = "none";
+                }
+            });
+
+            // function get list pitch
+            function getPitch(data) {
+                const listPitchHtml = data
+                    .map(function (pitch) {
+                        return `<div class="name-field">
+                                    <label for="pitch-${pitch.id}">${pitch.name}</label>
+                                    <input value="${pitch.id}" type="radio" name="field_id" id="pitch-${pitch.id}"/>
+                                </div>`;
+                    })
+                    .join();
+                listPitchs.innerHTML = listPitchHtml;
+
+                fieldSection.querySelectorAll("input[type=radio]").forEach(function (item) {
+                    item.addEventListener("change", function () {
+                        const dateSelect = new Date(selectDay.value).setHours(0, 0, 0, 0);
+                        const dateNow = new Date().setHours(0, 0, 0, 0);
+                        if (dateSelect && dateSelect >= dateNow) {
+                            pitchId = item.value;
+                            //call api timeslot
+                            $.ajax({
+                                url: `${url_api}/location/time-slot`,
+                                type: "get",
+                                data: {
+                                    date: selectDay.value,
+                                    field_id: pitchId,
+                                },
+                                success(res) {
+                                    console.log(res);
+                                    getListTimeslot(res.data);
+                                },
+                                error: console.log,
+                            });
+                        } else {
+                            item.checked = false;
+                            pitchId = null;
+                            alert("Vui lòng chọn ngày hiện tại hoặc ngày trong tương lai!");
+                        }
+                    });
+                });
+            }
+
+            // fuction get list timeslot
+            function getListTimeslot(data) {
+                const timeslotHtml = data
+                    .map(function (times) {
+                        const disabledClass = times.status == "ready" ? "btn-outline-success" : "btn-secondary";
+                        const isDisabled = times.status == "ready" ? false : true;
+                        return `<button type="button" class="btn ${disabledClass}" data-id="${times.timeslot_id}" data-price="${times.value}" ${times.status == "not-ready" ? "disabled" : ""}>${times.time_start} - ${times.time_end}</button>`;
+                    })
+                    .join("");
+                timeSlot.innerHTML = timeslotHtml;
+                setEventTimeSlot();
+            }
+
+            function setEventTimeSlot() {
+                timeSlot.querySelectorAll("button").forEach((item) => {
+                    item.addEventListener("click", function (e) {
+                        resetCSSTimeSlot();
+                        item.classList.replace("btn-outline-success", "btn-success");
+                        timeSlotId = item.dataset.id;
+                        price.textContent = `${parseInt(item.dataset.price).toLocaleString()}đ`;
+                        priceNotFormat = item.dataset.price;
+                    });
+                });
+                function resetCSSTimeSlot() {
+                    timeSlot.querySelectorAll("button").forEach((item) => {
+                        item.classList.replace("btn-success", "btn-outline-success");
+                    });
+                }
+            }
+
+            bookingBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                if (!selectDay.value) {
+                    alert("Vui lòng chọn ngày !");
+                } else if (pitchId == null) {
+                    alert("Vui lòng chọn loại sân !");
+                } else if (timeSlotId == null) {
+                    alert("Vui lòng chọn khung giờ !");
+                } else if (userId == null) {
+                    alert("Vui lòng đăng nhập để đặt sân !");
+                } else if (!fullname.value) {
+                    alert("Vui lòng nhập họ và tên !");
+                } else if (!numberphone.value) {
+                    alert("Vui lòng nhập số điện thoại !");
+                } else {
+                    $.ajax({
+                        url: `${url_api}/location/book-field`,
+                        type: "post",
+                        data: {
+                            timeslot_id: timeSlotId,
+                            field_id: pitchId,
+                            customer_id: userId,
+                            customer_name: fullname.value,
+                            phone_number: numberphone.value,
+                            date_book: selectDay.value,
+                            price: priceNotFormat,
+                        },
+                        success(res) {
+                            console.log(res);
+                            if (res.status == 'success') {
+                                alert(res.msg);
+                                location.reload();  
+                            }
+
+                        },
+                        error: console.log,
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

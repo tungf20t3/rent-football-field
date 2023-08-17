@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home</title>
+        <link rel="stylesheet" href="../style/user.css" />
+        <link rel="icon" type="image/x-icon" href="../assets/img/football.png" />
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-success bg-gradient fixed-top">
+            <div class="container">
+                <a class="navbar-brand me-2">
+                    <img
+                        src="../assets/img/logo.png"
+                        height="30"
+                        alt="MDB Logo"
+                        loading="lazy"
+                        style="margin-top: -1px"
+                    />
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarButtonsExample"
+                    aria-controls="navbarButtonsExample"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">DreamTeam</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <a href="../login.html" id="login">
+                            <button type="button" class="btn btn-link px-3 me-2 text-decoration-none text-light">Đăng nhập</button>
+                        </a>
+                        <a href="../signup.html" id="signup">
+                            <button type="button" class="btn btn-info me-3 text-light">Đăng ký</button>
+                        </a>
+                        <a href="update.html" id="account">
+                            <button type="button" class="btn btn-link px-3 me-2 text-decoration-none text-light">Tài khoản</button>
+                        </a>
+                        <a href="../login.html" id="logout">
+                            <button type="button" class="btn btn-info me-3 text-light">Đăng xuất</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- END NAV -->
+
+        <div id="carouselExampleIndicators" class="carousel slide slider-img" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="0"
+                    class="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                ></button>
+                <button
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="1"
+                    aria-label="Slide 2"
+                ></button>
+                <button
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="2"
+                    aria-label="Slide 3"
+                ></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active slider-img-items">
+                    <img src="../assets/img/slider/slider1.jpg" class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item slider-img-items">
+                    <img src="../assets/img/slider/slider2.jpg" class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item slider-img-items">
+                    <img src="../assets/img/slider/slider3.jpg" class="d-block w-100" alt="..." />
+                </div>
+            </div>
+            <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev"
+            >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next"
+            >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- END SLIDER -->
+
+        <div class="form-container-filter">
+            <div>
+                <select class="dropdown" id="list-ward">
+                    <option value="">-- Chọn phường --</option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </div>
+
+            <button class="searchBtn bg-success bg-gradient text-light" type="submit">Tìm kiếm</button>
+        </div>
+        <!-- END FILTER -->
+
+        <div class="content">
+            <section style="background-color: #eee">
+                <div class="container py-5" id="listLocation">
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-md-12 col-xl-10">
+                            <div class="card shadow-0 border rounded-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                            <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                                <img src="../assets/img/details/detail1.jpg" class="w-100" />
+                                                <a href="#!">
+                                                    <div class="hover-overlay">
+                                                        <div
+                                                            class="mask"
+                                                            style="background-color: rgba(253, 253, 253, 0.15)"
+                                                        ></div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-xl-6">
+                                            <h5>Sân bóng Trưng Nữ Vương Đà Nẵng</h5>
+                                            <div class="d-flex flex-row">
+                                                <div class="text-danger mb-1 me-2">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <span>310</span>
+                                            </div>
+                                            <div class="mt-1 mb-0 text-muted small">
+                                                <span class="fw-bold">Địa chỉ: </span>
+                                                <span>Số 560 - Trưng Nữ Vương - quận Hải Châu - TP. Đà Nẵng. </span>
+                                            </div>
+                                            <div class="mb-2 text-muted small">
+                                                <span class="fw-bold">Điểm nhấn: </span>
+                                                <span>Sân mới đầu tư | Đẹp & Hiện đại. </span>
+                                            </div>
+                                            <p class="text-truncate mb-4 mb-md-0">
+                                                There are many variations of passages of Lorem Ipsum available, but the
+                                                majority have suffered alteration in some form, by injected humour, or
+                                                randomised words which don't look even slightly believable.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                                            <h6 class="text-success">Giá tham khảo</h6>
+                                            <div class="d-flex flex-row align-items-center mb-1">
+                                                <h5 class="mb-1">đ180.000 - đ350.000</h5>
+                                            </div>
+                                            <div class="d-flex flex-column mt-4">
+                                                <button class="btn btn-success btn-sm" type="button">
+                                                    <a href="orderPitch.html" class="text-decoration-none text-dark"
+                                                        >Xem chi tiết</a
+                                                    >
+                                                </button>
+                                                <button class="btn btn-outline-success btn-sm mt-2" type="button">
+                                                    <a href="orderPitch.html" class="text-decoration-none text-dark"
+                                                        >Đặt sân</a
+                                                    >
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-md-12 col-xl-10">
+                            <div class="card shadow-0 border rounded-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                            <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                                <img src="../assets/img/details/detail2.jpg" class="w-100" />
+                                                <a href="#!">
+                                                    <div class="hover-overlay">
+                                                        <div
+                                                            class="mask"
+                                                            style="background-color: rgba(253, 253, 253, 0.15)"
+                                                        ></div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-xl-6">
+                                            <h5>Sân bóng Ba Đình Đà Nẵng</h5>
+                                            <div class="d-flex flex-row">
+                                                <div class="text-danger mb-1 me-2">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-half-fill"></i>
+                                                </div>
+                                                <span>289</span>
+                                            </div>
+                                            <div class="mt-1 mb-0 text-muted small">
+                                                <span class="fw-bold">Địa chỉ: </span>
+                                                <span>Số 560 - Trưng Nữ Vương - quận Hải Châu - TP. Đà Nẵng. </span>
+                                            </div>
+                                            <div class="mb-2 text-muted small">
+                                                <span class="fw-bold">Điểm nhấn: </span>
+                                                <span>Sân mới đầu tư | Đẹp & Hiện đại. </span>
+                                            </div>
+                                            <p class="text-truncate mb-4 mb-md-0">
+                                                There are many variations of passages of Lorem Ipsum available, but the
+                                                majority have suffered alteration in some form, by injected humour, or
+                                                randomised words which don't look even slightly believable.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                                            <h6 class="text-success">Giá tham khảo</h6>
+                                            <div class="d-flex flex-row align-items-center mb-1">
+                                                <h5 class="mb-1">đ180.000 - đ350.000</h5>
+                                            </div>
+                                            <div class="d-flex flex-column mt-4">
+                                                <button class="btn btn-success btn-sm" type="button">
+                                                    <a href="orderPitch.html" class="text-decoration-none text-dark"
+                                                        >Xem chi tiết</a
+                                                    >
+                                                </button>
+                                                <button class="btn btn-outline-success btn-sm mt-2" type="button">
+                                                    <a href="orderPitch.html" class="text-decoration-none text-dark"
+                                                        >Đặt sân</a
+                                                    >
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-12 col-xl-10">
+                            <div class="card shadow-0 border rounded-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                            <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                                <img src="../assets/img/details/detail3.jpg" class="w-100" />
+                                                <a href="#!">
+                                                    <div class="hover-overlay">
+                                                        <div
+                                                            class="mask"
+                                                            style="background-color: rgba(253, 253, 253, 0.15)"
+                                                        ></div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-xl-6">
+                                            <h5>Sân bóng nhân tạo làng thể thao Tuyên Sơn</h5>
+                                            <div class="d-flex flex-row">
+                                                <div class="text-danger mb-1 me-2">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                </div>
+                                                <span>145</span>
+                                            </div>
+                                            <div class="mt-1 mb-0 text-muted small">
+                                                <span class="fw-bold">Địa chỉ: </span>
+                                                <span>Số 560 - Trưng Nữ Vương - quận Hải Châu - TP. Đà Nẵng. </span>
+                                            </div>
+                                            <div class="mb-2 text-muted small">
+                                                <span class="fw-bold">Điểm nhấn: </span>
+                                                <span>Sân mới đầu tư | Đẹp & Hiện đại. </span>
+                                            </div>
+                                            <p class="text-truncate mb-4 mb-md-0">
+                                                There are many variations of passages of Lorem Ipsum available, but the
+                                                majority have suffered alteration in some form, by injected humour, or
+                                                randomised words which don't look even slightly believable.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                                            <h6 class="text-success">Giá tham khảo</h6>
+                                            <div class="d-flex flex-row align-items-center mb-1">
+                                                <h5 class="mb-1">đ180.000 - đ350.000</h5>
+                                            </div>
+                                            <div class="d-flex flex-column mt-4">
+                                                <button class="btn btn-success btn-sm" type="button">
+                                                    <a href="orderPitch.html" class="text-decoration-none text-dark"
+                                                        >Xem chi tiết</a
+                                                    >
+                                                </button>
+                                                <button class="btn btn-outline-success btn-sm mt-2" type="button">
+                                                    <a href="orderPitch.html" class="text-decoration-none text-dark"
+                                                        >Đặt sân</a
+                                                    >
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- END CONTENT -->
+
+        <footer class="text-center text-lg-start bg-white text-muted">
+            <div class="container text-center text-md-start mt-5">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3 text-secondary"></i>Company name
+                        </h6>
+                        <p>
+                            Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
+                            amet, consectetur adipisicing elit.
+                        </p>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+                        <p><a href="#!" class="text-reset text-decoration-none">Angular</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">React</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">Vue</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">Laravel</a></p>
+                    </div>
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+                        <p><a href="#!" class="text-reset text-decoration-none">Pricing</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">Settings</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">Orders</a></p>
+                        <p><a href="#!" class="text-reset text-decoration-none">Help</a></p>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                        <p><i class="ri-home-2-fill text-secondary"></i> 94 Ngyễn Công Trứ, Sơn Trà, Đà Nẵng</p>
+                        <p><i class="ri-mail-fill text-secondary"></i> info@example.com</p>
+                        <p><i class="ri-phone-fill text-secondary"></i> + 01 234 567 88</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025)">
+                © 2021 Copyright:
+                <a class="text-reset text-decoration-none fw-bold" href="">VanTung</a>
+            </div>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="../js/main.js"></script>
+        <script>
+            const loginBtn = document.getElementById("login");
+            const signupBtn = document.getElementById("signup");
+            const accountBtn = document.getElementById("account");
+            const logoutBtn = document.getElementById("logout");
+            const selectWard = document.getElementById("list-ward");
+            const locations = document.getElementById("listLocation");
+
+            userHeaders();
+
+            // xử lý sự kiện đăng xuất
+            logoutBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                // call function log out
+                logout();
+                location.href = "../login.html";
+            });
+
+            // call api phường xã
+            $.ajax({
+                url: `${url_api}/ward`,
+                type: "get",
+                data: {
+                    district_id: 492,
+                },
+                success(res) {
+                    console.log(res);
+                    if (res.status == "success") {
+                        setDataWard(res.data);
+                    }
+                },
+                error: console.log,
+            });
+
+            //đổ tất cả dữ liệu xã phường(tag select)
+            callAPIGetDataLocation();
+
+            function setDataWard(data) {
+                const listWardHtml =
+                    `<option value="">-- Chọn phường --</option>` +
+                    data
+                        .map(function (item) {
+                            return `<option value="${item.id}">${item.name}</option>`;
+                        })
+                        .join("");
+                selectWard.innerHTML = listWardHtml;
+            }
+
+            function callAPIGetDataLocation(ward_id = null) {
+                $.ajax({
+                    url: `${url_api}/location/by-ward`,
+                    type: "get",
+                    data: {
+                        ward_id: ward_id?ward_id: null,
+                    },
+                    success(res) {
+                        console.log(res);
+                        setDataLocation(res.data);
+                    },
+                    error: console.log,
+                });
+            } 
+            //chọn phường đổ dữ liệu sân bóng
+            selectWard.addEventListener("change", function () {
+                callAPIGetDataLocation(selectWard.value);
+            });
+
+            function setDataLocation(listDataLocation) {
+                const dataLocationHtml = listDataLocation
+                    .map(function (item) {
+                        const address = `${item.address.description} - ${item.address.ward.name} - ${item.address.ward.district.name} - ${item.address.ward.district.province.name}`;
+                        const priceMin = `${item.price.min.toLocaleString()}`;
+                        const priceMax = `${item.price.max.toLocaleString()}`;
+                        const imageFirst = item.image[0];
+                        return `<div class="row justify-content-center mb-3">
+                                    <div class="col-md-12 col-xl-10">
+                                        <div class="card shadow-0 border rounded-3">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                                        <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                                            <img src="${imageFirst}" class="w-100" />
+                                                            <a href="#!">
+                                                                <div class="hover-overlay">
+                                                                    <div
+                                                                        class="mask"
+                                                                        style="background-color: rgba(253, 253, 253, 0.15)"
+                                                                    ></div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-6 col-xl-6">
+                                                        <h5>${item.name}</h5>
+                                                        <div class="d-flex flex-row">
+                                                            <div class="text-danger mb-1 me-2">
+                                                                <i class="ri-star-fill"></i>
+                                                                <i class="ri-star-fill"></i>
+                                                                <i class="ri-star-fill"></i>
+                                                                <i class="ri-star-fill"></i>
+                                                                <i class="ri-star-fill"></i>
+                                                            </div>
+                                                            <span>310</span>
+                                                        </div>
+                                                        <div class="mt-1 mb-0 text-muted small">
+                                                            <span class="fw-bold">Địa chỉ: </span>
+                                                            <span>${address}</span>
+                                                        </div>
+                                                        <div class="mb-2 text-muted small">
+                                                            <span class="fw-bold">Điểm nhấn: </span>
+                                                            <span>Sân mới đầu tư | Đẹp & Hiện đại. </span>
+                                                        </div>
+                                                        <p class="text-truncate mb-4 mb-md-0">
+                                                            ${item.description}
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                                                        <h6 class="text-success">Giá tham khảo</h6>
+                                                        <div class="d-flex flex-row align-items-center mb-1">
+                                                            <h5 class="mb-1">${priceMin} - ${priceMax}đ</h5>
+                                                        </div>
+                                                        <div class="d-flex flex-column mt-4">
+                                                            <button class="btn btn-success btn-sm" type="button">
+                                                                <a href="orderPitch.html?id=${item.id}" class="text-decoration-none text-dark">Xem chi tiết</a>
+                                                            </button>
+                                                            <button class="btn btn-outline-success btn-sm mt-2" type="button">
+                                                                <a href="orderPitch.html" class="text-decoration-none text-dark">Đặt sân</a>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                    }).join("");
+                locations.innerHTML = dataLocationHtml;
+            }
+        </script>
+    </body>
+</html>

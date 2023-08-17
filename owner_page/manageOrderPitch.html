@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Manage Pitch</title>
+        <link rel="stylesheet" href="../style/owner.css" />
+        <link rel="icon" type="image/x-icon" href="../assets/img/football.png" />
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="logo-admin">
+                <img src="../assets/img/logo.png" alt="logo" />
+                <h2>DreamTeam</h2>
+            </div>
+            <ul class="items">
+                <li>
+                    <i class="ri-home-4-fill"></i>
+                    <a href="index.html">Trang chủ</a>
+                </li>
+                <li>
+                    <i class="ri-home-4-fill"></i>
+                    <a href="index.html">Thông tin sân bóng</a>
+                </li>
+                <li>
+                    <i class="ri-time-fill"></i>
+                    <a href="manageTimeslot.html">Quản lý khung giờ</a>
+                </li>
+                <li>
+                    <i class="ri-football-line"></i>
+                    <a href="managePitch.html">Quản lý sân</a>
+                </li>
+                <li>
+                    <i class="ri-wallet-fill"></i>
+                    <a href="manageOrderPitch.html">Quản lý đặt sân</a>
+                </li>
+                <li>
+                    <i class="ri-login-box-fill"></i>
+                    <a href="#">Đăng xuất</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <!-- navbar -->
+            <div class="navbar-admin">
+                <div class="search">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search" />
+                </div>
+
+                <div class="profile">
+                    <i class="ri-notification-3-line"></i>
+                    <img src="../assets/img/avatar.jpg" alt="avatar" />
+                </div>
+            </div>
+
+            <!-- filter -->
+            <div class="container-filter">
+                <div>
+                    <input type="date" id="list-day" class="filter-day" />
+                </div>
+                <div>
+                    <select class="dropdown" id="list-pitch">
+                        <option value="">-- Sân --</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <div>
+                    <select class="dropdown" id="list-status">
+                        <option value="">-- Trạng thái --</option>
+                        <option value="1">Đang chờ duyệt</option>
+                        <option value="2">Đã duyệt</option>
+                        <option value="4">Đã Thanh toán</option>
+                        <option value="3">Đã hủy</option>
+                    </select>
+                </div>
+
+                <button class="searchBtn bg-success bg-gradient text-light" id="search-btn" type="submit">
+                    Tìm kiếm
+                </button>
+                <button class="resetBtn bg-secondary bg-gradient text-light" id="reset-btn" type="submit">
+                    Làm mới
+                </button>
+            </div>
+
+            <table class="dataTable" style="margin-top: 40px" id="data-table">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ tên</th>
+                        <th>SĐT</th>
+                        <th>Sân</th>
+                        <th>Ngày đặt</th>
+                        <th>Khung giờ</th>
+                        <th>Giá</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>johndoe</td>
+                        <td>0912345678</td>
+                        <td>Sân A1</td>
+                        <td>01/06/2023</td>
+                        <td>17:00 - 18:00</td>
+                        <td>180.000</td>
+                        <td>Đang chờ duyệt</td>
+                        <td>
+                            <a class="view" href=""><i class="ri-menu-4-fill"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>hehe</td>
+                        <td>0912345678</td>
+                        <td>Sân A2</td>
+                        <td>31/05/2023</td>
+                        <td>16:00 - 17:00</td>
+                        <td>180.000</td>
+                        <td>Đã thanh toán</td>
+                        <td>
+                            <a class="view" href=""><i class="ri-menu-4-fill"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>hihis</td>
+                        <td>0912345678</td>
+                        <td>Sân A1</td>
+                        <td>01/06/2023</td>
+                        <td>17:00 - 18:00</td>
+                        <td>180.000</td>
+                        <td>Đã hủy</td>
+                        <td>
+                            <a class="view" href=""><i class="ri-menu-4-fill"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>johndoe</td>
+                        <td>0912345678</td>
+                        <td>Sân B1</td>
+                        <td>01/06/2023</td>
+                        <td>17:00 - 18:00</td>
+                        <td>180.000</td>
+                        <td>Đã duyệt</td>
+                        <td>
+                            <a class="view" href=""><i class="ri-menu-4-fill"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="../js/main.js"></script>
+        <script>
+            const items = document.querySelectorAll(".items li a");
+            items.forEach((item) => {
+                item.addEventListener("click", () => {
+                    items.forEach((li) => li.classList.remove("active"));
+                    item.classList.add("active");
+                });
+            });
+        </script>
+
+        <script>
+            const selectDay = document.getElementById("list-day");
+            const selectPitch = document.getElementById("list-pitch");
+            const selectStatus = document.getElementById("list-status");
+            const searchBtn = document.getElementById("search-btn");
+            const resetBtn = document.getElementById("reset-btn");
+            const dataTable = document.querySelector("#data-table tbody");
+
+            var locationId = null;
+            var ownerId = localStorage.getItem("userId");
+
+            //call api get locationId
+            $.ajax({
+                url: `${url_api}/owner/location`,
+                type: "get",
+                data: {
+                    owner_id: ownerId,
+                },
+                success(res) {
+                    console.log(res);
+                    if (res.status != "success") {
+                        location.href = "../login.html";
+                    } else {
+                        locationId = res.data.id;
+                        getListPitch();
+                        getListBookings();
+                    }
+                },
+                error: console.log,
+            });
+
+            function getListPitch() {
+                // call api get List pitch
+                $.ajax({
+                    url: `${url_api}/field/by-location`,
+                    type: "get",
+                    data: {
+                        location_id: locationId,
+                    },
+                    success(res) {
+                        console.log(res);
+                        setListPitch(res.data);
+                    },
+                    error: console.log,
+                });
+            }
+
+            //hàm lấy dữ liệu sân đổ vào tag select sân
+            function setListPitch(data) {
+                const listDataPitchHtml =
+                    `<option value="">-- Sân --</option>` +
+                    data
+                        .map(function (item) {
+                            return `<option value="${item.id}">${item.name}</option>`;
+                        })
+                        .join("");
+                selectPitch.innerHTML = listDataPitchHtml;
+            }
+
+            function getListBookings(date = null, pitchId = null, statusId = null) {
+                date = date || null;
+                pitchId = pitchId || null;
+                statusId = statusId || null;
+
+                // call api list booking
+                $.ajax({
+                    url: `${url_api}/booking/by-location`,
+                    type: "get",
+                    data: {
+                        location_id: locationId,
+                        date_book: date,
+                        status_id: statusId,
+                        field_id: pitchId,
+                    },
+                    success(res) {
+                        // console.clear();
+                        console.log(res);
+                        if (res.status == "success") {
+                            //call function setDataTable
+                            setDataTable(res.data);
+                        }
+                    },
+                    error: console.log,
+                });
+            }
+
+            // function setDataTable
+            function setDataTable(data) {
+                const dataBookingHtml = data
+                    .map(function (item) {
+                        // điều kiện ngày duyệt đơn phải là ngày hiện tại hoặc ngày trong tương lai
+                        const dateTimeBooking = new Date(item.date_book + "T" + item.timeSlot.time_start + ":00Z");
+                        const now = new Date();
+                        let status;
+                        if (dateTimeBooking < now && item.status.id == 1) {
+                            status = "Đã quá hạn";
+                        } else {
+                            status = item.status.name;
+                        }
+                        return `<tr>
+                                    <td>${item.id}</td>
+                                    <td>${item.customer_name}</td>
+                                    <td>${item.phone_number}</td>
+                                    <td>${item.field.name}</td>
+                                    <td>${item.date_book}</td>
+                                    <td>${item.timeSlot.time_start} - ${item.timeSlot.time_end}</td>
+                                    <td>${parseInt(item.price).toLocaleString()}đ</td>
+                                    <td>${status}</td>
+                                    <td>
+                                        <a class="view" href="detailOrder.html?id=${item.id}"><i class="ri-menu-4-fill"></i></a>
+                                    </td>
+                                </tr>`;
+                    })
+                    .join("");
+                dataTable.innerHTML = dataBookingHtml;
+
+                searchBtn.addEventListener("click", function () {
+                    getListBookings(
+                        (date = selectDay.value),
+                        (pitchId = selectPitch.value),
+                        (statusId = selectStatus.value)
+                    );
+                });
+
+                // xử lý sự kiện nút reset
+                resetBtn.addEventListener("click", function () {
+                    selectDay.value = "";
+                    selectPitch.value = "";
+                    selectStatus.value = "";
+                    getListBookings();
+                });
+            }
+        </script>
+    </body>
+</html>

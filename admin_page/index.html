@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../style/admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-admin">
+            <img src="../assets/img/logo.png" alt="logo">
+            <h2>DreamTeam</h2>
+        </div>
+        <ul class="items">
+            <li>
+                <i class="ri-home-4-fill"></i>
+                <a href="#">Trang chủ</a>
+            </li>
+            <li>
+                <i class="ri-emoji-sticker-fill"></i>
+                <a href="approve.html">Phê duyệt</a>
+            </li>
+            <li>
+                <i class="ri-login-box-fill"></i>
+                <a href="../login.html" id="logout">Đăng xuất</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="navbar-admin">
+
+            <div class="search">
+                <i class="ri-search-line"></i>
+                <input type="text" placeholder="Search">
+            </div>
+
+            <div class="profile">
+                <i class="ri-notification-3-line"></i>
+                <img src="../assets/img/avatar.jpg" alt="avatar">
+            </div>
+        </div>  
+
+        <a href="addMember.html" class="add-member">Thêm thành viên</a>
+        <table class="dataTable table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Active</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>johndoe</td>
+                    <td>johndoe@example.com</td>
+                    <td>Member</td>
+                    <td>Active</td>
+                    <td>
+                        
+                        <a href="edit.html" class="edit"><i class="ri-pencil-fill fw-bold"></i></a>
+                        <a href="#" class="delete"><i class="ri-eye-close-fill fw-bold"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>janedoe</td>
+                    <td>janedoe@example.com</td>
+                    <td>Owner</td>
+                    <td>Inactive</td>
+                    <td>
+                        <a href="edit.html" class="edit"><i class="ri-pencil-fill fw-bold"></i></a>
+                        <a href="#" class="delete"><i class="ri-eye-close-fill fw-bold"></i></a>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>3</td>
+                    <td>johndoe</td>
+                    <td>johndoe@example.com</td>
+                    <td>Member</td>
+                    <td>Active</td>
+                    <td>
+                        <a href="#" class="edit"><i class="ri-pencil-fill fw-bold"></i></a>
+                        <a href="#" class="delete"><i class="ri-eye-close-fill fw-bold"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>janedoe</td>
+                    <td>janedoe@example.com</td>
+                    <td>Owner</td>
+                    <td>Inactive</td>
+                    <td>
+                        <a href="#" class="edit"><i class="ri-pencil-fill fw-bold"></i></a>
+                        <a href="#" class="delete"><i class="ri-eye-close-fill fw-bold"></i></a>
+                    </td>
+                </tr>  
+                <tr>
+                    <td>5</td>
+                    <td>johndoe</td>
+                    <td>johndoe@example.com</td>
+                    <td>Member</td>
+                    <td>Active</td>
+                    <td>
+                        <a href="#" class="edit"><i class="ri-pencil-fill fw-bold"></i></a>
+                        <a href="#" class="delete"><i class="ri-eye-close-fill fw-bold"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>janedoe</td>
+                    <td>janedoe@example.com</td>
+                    <td>Owner</td>
+                    <td>Inactive</td>
+                    <td>
+                        
+                        <a href="#" class="edit"><i class="ri-pencil-fill fw-bold"></i></a>
+                        <a href="#" class="delete"><i class="ri-eye-close-fill fw-bold"></i></a>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>7</td>
+                    <td>johndoe</td>
+                    <td>johndoe@example.com</td>
+                    <td>Member</td>
+                    <td>Active</td>
+                    <td>
+                        
+                        <a href="#" class="edit"><i class="ri-pencil-fill fw-bold"></i></a>
+                        <a href="#" class="delete"><i class="ri-eye-close-fill fw-bold"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>janedoe</td>
+                    <td>janedoe@example.com</td>
+                    <td>Owner</td>
+                    <td>Inactive</td>
+                    <td>
+                        <a href="#" class="edit"><i class="ri-pencil-fill fw-bold"></i></a>
+                        <a href="#" class="delete"><i class="ri-eye-close-fill fw-bold"></i></a>
+                    </td>
+                </tr>  
+            </tbody>
+        </table>
+    </div>
+
+    <div id="confirmDialog" class="modal">
+        <div class="modal-content">
+          <p>Bạn có chắc chắn muốn xóa không?</p>
+          <div class="button-container">
+            <button id="cancelButton">Cancel</button>
+            <button id="okButton">OK</button>
+          </div>
+        </div>
+    </div>
+    
+    <script>
+        //popup delete
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteLinks = document.getElementsByClassName('delete');
+            const popup = document.getElementById('confirmDialog');
+            const deleteOkButton = document.getElementById('okButton');
+            const deleteCancelButton = document.getElementById('cancelButton');
+            
+            for (let i = 0; i < deleteLinks.length; i++) {
+                deleteLinks[i].addEventListener('click', function(event) {
+                    event.preventDefault();
+                    popup.style.display = 'block';
+                });
+            }
+            deleteOkButton.addEventListener('click', function() {
+            // Xử lý khi bấm nút OK
+                popup.style.display = 'none';
+            });
+            deleteCancelButton.addEventListener('click', function() {
+            // Xử lý khi bấm nút Cancel
+                popup.style.display = 'none';
+            });
+        });
+
+        //change background li 
+        const items = document.querySelectorAll('.items li');
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                items.forEach(li => li.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+
+    
+</body>
+</html>

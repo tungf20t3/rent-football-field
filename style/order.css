@@ -1,0 +1,205 @@
+.name-pitch {
+    margin: 100px 0px 20px 200px
+}
+
+.contents {
+    display: flex;
+    margin: 0 200px;
+}
+
+.contents .single-image{
+    width: 60%;
+    margin-right: 50px;
+}   
+
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+.contents .single-pro-detail{
+    width: 50%;
+}
+
+.info-address,
+.info-order {
+    width: 350px;
+    box-shadow: 0 1px 2px 0 #0000001a;
+    border: 1px solid #ededed;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.header-info-address,
+.header-info-order {
+    display: flex;
+    padding: 5px 8px;
+    background: #ececec;
+}
+
+.header-info-address i, 
+.header-info-order i {
+    margin-right: 8px;
+}
+
+.body-info-address,
+.body-info-order {
+    padding: 10px 16px;
+}
+
+.body-info-address a{
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px 90px;
+    text-decoration: none;
+    color: #000000;
+    border: 1px solid #898787;
+    border-radius: 3px;
+    margin-top: 18px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.body-info-address .view-phone {
+    text-align: center;
+    border: 1px solid #898787;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 18px 0;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.body-info-address .view-phone > span:last-child{
+    display: none;
+}
+
+.body-info-address .view-phone.active > span:first-child{
+    display: none;
+}
+
+.body-info-address .view-phone.active > span:last-child{
+    display: block;
+}
+
+.body-info-address a:hover,
+.body-info-address .view-phone:hover {
+    color: #198754;
+    border-color: #198754;
+}
+
+.fullname span,
+.phonenumber span,
+.choose-type-pitch span,
+.choose-day span,
+.price span,
+.leave-message span {
+    display: block;
+}
+
+.fullname input,
+.phonenumber input,
+.choose-type-pitch select,
+.choose-day input,
+.price input,
+.leave-message textarea { 
+    margin-top: 5px;
+    width: 100%;
+    padding: 6px;
+}
+
+.choose-hours,
+.choose-day,
+.phonenumber,
+.leave-message,
+.choose-type-pitch {
+    margin: 10px 0 5px 0;
+}
+
+.field{
+    border: 0.5px solid #000;
+    padding: 4px 10px;
+    border-radius: 3px;
+}
+
+.field .name-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.choose-hours .time-slot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+.choose-hours .time-slot button {
+    flex: 0 0 calc(33.33% - 8px);
+    margin-bottom: 10px;
+    outline: none;
+    border-radius: 2px;
+    padding: 4px 2px;
+    /* background: #ffffff; */
+    /* border: 0.5px solid #000; */
+    transition: ease-in-out .2s;
+}
+
+/* .choose-hours .time-slot button:hover {
+    color: #ffffff;
+    background-color: #198754;
+    border-color: #198754;
+} */
+
+.send-require {
+    width: 100%;
+    padding: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0;
+    background: #198754;   
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+.describe {
+    margin: 0 200px;
+    border: 1px solid #ccc;
+}
+
+.header-describe {
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.25rem;
+    color: #333;
+    box-shadow: 0 4px 3px -4px #ececec;
+    border-bottom: none;
+    background-color: #ececec;
+    padding: 12px 15px;
+}
+
+.body-describe {
+    padding: 20px;
+
+}
+
+.body-describe h3{
+    padding-bottom: 10px;
+}
+
+.body-describe p{
+    font-size: 17px;
+    text-align: justify;
+}

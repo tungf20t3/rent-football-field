@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Approve</title>
+        <link rel="stylesheet" href="../style/admin.css" />
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="logo-admin">
+                <img src="../assets/img/logo.png" alt="logo" />
+                <h2>DreamTeam</h2>
+            </div>
+            <ul class="items">
+                <li>
+                    <i class="ri-home-4-fill"></i>
+                    <a href="index.html">Trang chủ</a>
+                </li>
+                <li>
+                    <i class="ri-emoji-sticker-fill"></i>
+                    <a href="#">Phê duyệt</a>
+                </li>
+                <li>
+                    <i class="ri-login-box-fill"></i>
+                    <a href="#" id="logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="navbar-admin">
+                <div class="search">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search" />
+                </div>
+
+                <div class="profile">
+                    <i class="ri-notification-3-line"></i>
+                    <img src="../assets/img/avatar.jpg" alt="avatar" />
+                </div>
+            </div>
+
+            <table class="dataTable table-bordered" style="margin-top: 40px" id="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>SĐT</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>johndoe</td>
+                        <td>johndoe@example.com</td>
+                        <td>0123456789</td>
+                        <td>Chủ sân</td>
+                        <td>Đang chờ duyệt</td>
+                        <td>
+                            <a class="approve" href=""><i class="ri-checkbox-circle-fill"></i></a>
+                            <a class="cancel" href=""><i class="ri-close-circle-fill"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>janedoe</td>
+                        <td>janedoe@example.com</td>
+                        <td>0123456789</td>
+                        <td>Chủ sân</td>
+                        <td>Đang chờ duyệt</td>
+                        <td>
+                            <a class="approve" href=""><i class="ri-checkbox-circle-fill"></i></a>
+                            <a class="cancel" href=""><i class="ri-close-circle-fill"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>johndoe</td>
+                        <td>johndoe@example.com</td>
+                        <td>0123456789</td>
+                        <td>Chủ sân</td>
+                        <td>Đang chờ duyệt</td>
+                        <td>
+                            <a class="approve" href=""><i class="ri-checkbox-circle-fill"></i></a>
+                            <a class="cancel" href=""><i class="ri-close-circle-fill"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>janedoe</td>
+                        <td>janedoe@example.com</td>
+                        <td>0123456789</td>
+                        <td>Chủ sân</td>
+                        <td>Đang chờ duyệt</td>
+                        <td>
+                            <a class="approve" href=""><i class="ri-checkbox-circle-fill"></i></a>
+                            <a class="cancel" href=""><i class="ri-close-circle-fill"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="../js/main.js"></script>
+        <script>
+            const items = document.querySelectorAll(".items li");
+            items.forEach((item) => {
+                item.addEventListener("click", () => {
+                    items.forEach((li) => li.classList.remove("active"));
+                    item.classList.add("active");
+                });
+            });
+        </script>
+        <script>
+            const dataTable = document.querySelector("#data-table tbody");
+            const logoutBtn = document.getElementById("logout");
+
+            // xử lý sự kiện đăng xuất
+            logoutBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                // call function log out
+                logout();
+                location.href = "../login.html";
+            });
+
+            // call api get list owner
+            $.ajax({
+                url: `${url_api}/admin/verification`,
+                type: "get",
+                success(res) {
+                    console.log(res);
+                    // call function get list owner
+                    setDataOwner(res.data);
+                },
+                error: console.log,
+            });
+
+            // function get list owner
+            function setDataOwner(data) {
+                const dataOwnerHtml = data
+                    .map(function (item) {
+                        var action;
+                        if (item.status.id == 1) {
+                            action = `<a data-id="${item.id}" class="approve" href=""><i class="ri-checkbox-circle-fill"></i></a>
+                                        <a data-id="${item.id}" class="cancel" href=""><i class="ri-close-circle-fill"></i></a>`;
+                        } else {
+                            action = ``;
+                        }
+                        return `<tr>
+                                    <td>${item.id}</td>
+                                    <td>${item.name}</td>
+                                    <td>${item.email}</td>
+                                    <td>${item.phone_number}</td>
+                                    <td>${item.role.name}</td>
+                                    <td>${item.status.name}</td>
+                                    <td>
+                                       ${action}
+                                    </td>
+                                </tr>`;
+                    })
+                    .join("");
+                dataTable.innerHTML = dataOwnerHtml;
+                addEventAction();
+            }
+
+            function addEventAction() {
+                const listApproveBtn = dataTable.querySelectorAll("a.approve[data-id]");
+                const listCancelBtn = dataTable.querySelectorAll("a.cancel[data-id]");
+                listApproveBtn.forEach(function (approveBtn) {
+                    approveBtn.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        if (confirm("Are you sure you want to approve")) {
+                            //call api approve
+                            $.ajax({
+                                url: `${url_api}/admin/verification`,
+                                type: "post",
+                                data: {
+                                    owner_id: approveBtn.dataset.id,
+                                    status_id: 2,
+                                },
+                                success(res) {
+                                    console.log(res);
+                                    if (res.status == "success") {
+                                        alert(res.msg);
+                                        location.reload();
+                                    }
+                                },
+                                error: console.log,
+                            });
+                        }
+                    });
+                });
+
+                listCancelBtn.forEach(function (cancelBtn) {
+                    cancelBtn.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        if (confirm("Are you sure you want to cancel")) {
+                            //call api refuse
+                            $.ajax({
+                                url: `${url_api}/admin/verification`,
+                                type: "post",
+                                data: {
+                                    owner_id: cancelBtn.dataset.id,
+                                    status_id: 3,
+                                },
+                                success(res) {
+                                    console.log(res);
+                                    if (res.status == "success") {
+                                        alert(res.msg);
+                                        location.reload();
+                                    }
+                                },
+                                error: console.log,
+                            });
+                        }
+                    });
+                });
+            }
+        </script>
+    </body>
+</html>
